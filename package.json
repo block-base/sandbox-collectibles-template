@@ -12,9 +12,14 @@
     "fix": "run-p fix:*",
     "fix:react-app": "yarn workspace react-app lint --fix",
     "lint": "run-p lint:*",
-    "lint:react-app": "yarn workspace react-app lint"
+    "lint:react-app": "yarn workspace react-app lint",
+    "build": "run-p build:*",
+    "build:react-app": "yarn workspace react-app build",
+    "predeploy": "yarn build",
+    "deploy": "yarn firebase deploy"
   },
   "devDependencies": {
+    "firebase-tools": "^9.16.5",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2"
   }
