@@ -24,10 +24,10 @@ module.exports = {
     //   url: network.mainnet.rpc,
     //   accounts: [privateKey],
     // },
-    // kovan: {
-    //   url: network.kovan.rpc,
-    //   accounts: [privateKey],
-    // },
+    rinkeby: {
+      url: "https://rinkeby.infura.io/v3/95f65ab099894076814e8526f52c9149",
+      accounts: [privateKey],
+    },
     polygon: {
       url: "https://polygon-mainnet.infura.io/v3/7495501b681645b0b80f955d4139add9",
       accounts: [privateKey],
