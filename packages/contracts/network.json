@@ -22,7 +22,6 @@
   "localhost": {
     "chainId": "31337",
     "rpc": "http://localhost:8545",
-    "explore": "https://rinkeby.etherscan.io/",
-    "tip": "0x4826533B4897376654Bb4d4AD88B7faFD0C98528"
+    "explore": "https://rinkeby.etherscan.io/"
   }
 }
