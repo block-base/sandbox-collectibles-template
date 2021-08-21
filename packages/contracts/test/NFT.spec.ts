@@ -14,7 +14,7 @@ describe("NFT", function () {
   this.beforeEach(async function () {
     [signer, buyer] = await ethers.getSigners();
     const NFT = await ethers.getContractFactory("NFT");
-    nftContract = await NFT.deploy();
+    nftContract = await NFT.deploy("Kanji Flower", "KF", "http://localhost:8545");
     await nftContract.mint(buyer.address);
     await nftContract.mint(buyer.address);
   });
