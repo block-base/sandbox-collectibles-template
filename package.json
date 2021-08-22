@@ -10,7 +10,7 @@
     "ci": "yarn build && yarn lint",
     "dev": "run-p dev:*",
     "dev:react-app": "yarn workspace react-app dev",
-    "format": "prettier . --ignore-path .gitignore --write",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.{.ts,.js,tsx,jsx,json,md,sol}\"",
     "fix": "run-p fix:*",
     "fix:react-app": "yarn workspace react-app lint --fix",
     "lint": "run-p lint:*",
@@ -26,6 +26,7 @@
     "firebase-tools": "^9.16.5",
     "husky": "^7.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.17"
   }
 }

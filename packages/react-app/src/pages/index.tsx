@@ -1,4 +1,5 @@
 import React from "react";
+import { ethers } from "ethers";
 
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
@@ -16,7 +17,12 @@ const App = () => {
   const nftContractWithSigner = useNFT();
 
   const mint = async () => {
-    await nftContractWithSigner.mint(account);
+    const value = ethers.utils.parseEther("0.08").toString();
+    await nftContractWithSigner.buy(1, { value: value });
+  };
+
+  const withdraw = async () => {
+    await nftContractWithSigner.withdraw();
   };
 
   return (
@@ -24,6 +30,7 @@ const App = () => {
       <button onClick={connectWallet}>connectWallet</button>
       <div>{account}</div>
       <button onClick={mint}>mint</button>
+      <button onClick={withdraw}>withdraw</button>
     </>
   );
 };

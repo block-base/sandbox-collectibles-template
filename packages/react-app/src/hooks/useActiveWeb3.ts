@@ -6,7 +6,7 @@ import { Web3ReactContextInterface } from "@web3-react/core/dist/types";
 import { ethers } from "ethers";
 
 const rpc =
-  process.env.NODE_ENV == "development"
+  process.env.NODE_ENV === "development"
     ? "https://polygon-mumbai.infura.io/v3/7495501b681645b0b80f955d4139add9"
     : "https://polygon-mainnet.infura.io/v3/7495501b681645b0b80f955d4139add9";
 
