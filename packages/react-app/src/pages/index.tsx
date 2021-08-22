@@ -5,6 +5,7 @@ import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { useWallet } from "../hooks/useWallet";
 import { useNFT } from "../hooks/useContract";
+import { Header } from "../components/Header";
 
 function getLibrary(provider: any) {
   const library = new Web3Provider(provider);
@@ -27,6 +28,7 @@ const App = () => {
 
   return (
     <>
+      <Header></Header>
       <button onClick={connectWallet}>connectWallet</button>
       <div>{account}</div>
       <button onClick={mint}>mint</button>
