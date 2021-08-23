@@ -4,7 +4,6 @@ import TokenPage from "./pages/tokens/_id";
 
 import "./styles/tailwind.css";
 import "./styles/font.css";
-import "./styles/global.css";
 
 function App() {
   return (
