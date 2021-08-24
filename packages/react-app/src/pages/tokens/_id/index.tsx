@@ -1,5 +1,4 @@
 import React from "react";
-import { ethers } from "ethers";
 import { useParams, Link } from "react-router-dom";
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
@@ -9,7 +8,10 @@ import { Heading } from "../../../components/atoms/Heading";
 import { Button } from "../../../components/atoms/Button";
 import { Text } from "../../../components/atoms/Text";
 import { getNFTContract } from "../../../lib/web3";
+import { openSea } from "../../../lib/env";
 import data from "../../../components/data.json";
+
+let nftContract: any;
 
 function getLibrary(provider: any) {
   const library = new Web3Provider(provider);
@@ -23,13 +25,16 @@ const App = () => {
     id: string;
   }>();
   React.useEffect(() => {
-    const nftContract = getNFTContract();
+    nftContract = getNFTContract();
     nftContract
-      .ownerOf(0)
+      .ownerOf(id)
       .then((tokenId: string) => {
         setHolderAddress(tokenId);
       })
-      .catch(setHolderAddress("not minted"));
+      .catch((err: any) => {
+        console.log(err);
+        setHolderAddress("not minted");
+      });
   }, []);
 
   return (
@@ -41,28 +46,40 @@ const App = () => {
         </Heading>
       </div>
       <div className="pb-4">
-        <Text align="center">Kanji Flowers is a 2889 unique NFT art created with Generative Art.</Text>
+        <Text align="center">
+          Kanji Flower is a collectibles of generative art based on Japanese Kanji characters. Each Kanji is a single
+          NFT and there are 2222 NFTs in total. All metadata is stored in ipfs.
+        </Text>
       </div>
-      <div className="flex justify-between px-10 py-5">
-        <Link to={`${Number(id) - 1}`}>
-          <p className="hover:opacity-75 text-red-400 underline">←prev</p>
-        </Link>
-        <Link to={`${Number(id) + 1}`}>
-          <p className="hover:opacity-75 text-red-400 underline">next→</p>
-        </Link>
-      </div>
-      <div className="grid lg:grid-cols-2 lg:p-5">
-        <KanjiFlower index={id} />
+      <div className="grid xl:grid-cols-2 lg:p-5">
         <div className="m-auto">
-          <div className="mx-auto w-1/2">
-            <Button color="pink" rounded={true}>
-              view on OpenSea
-            </Button>
+          <KanjiFlower index={id} />
+        </div>
+        <div className="m-auto">
+          <div className="py-5">
+            <a href={`${openSea}/${nftContract?.address}/${id}`} target="_blank">
+              <Button color="pink" rounded={true}>
+                view on OpenSea
+              </Button>
+            </a>
           </div>
+
           <Text align="center" size="xs">
             holder: {holderAddress}
           </Text>
         </div>
+      </div>
+      <div className="flex justify-between px-10 py-5">
+        {0 < Number(id) ? (
+          <Link to={`${Number(id) - 1}`}>
+            <Text className="hover:opacity-75 text-red-400 underline">←prev</Text>
+          </Link>
+        ) : (
+          <p className="hover:opacity-75 text-red-400"></p>
+        )}
+        <Link to={`${Number(id) + 1}`}>
+          <p className="hover:opacity-75 text-red-400 underline">next→</p>
+        </Link>
       </div>
     </>
   );

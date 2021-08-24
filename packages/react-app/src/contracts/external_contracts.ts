@@ -574,7 +574,7 @@ const nftAbi = [
 export default {
   80001: {
     contracts: {
-      nft: { address: "0x722AFdE5Ee179Ae92733c079A5E52b9F3277AEDd", abi: nftAbi },
+      nft: { address: "0x486a153A8d904fEf2AEF7f2d2BE8820ee600376f", abi: nftAbi },
     },
   },
   137: {

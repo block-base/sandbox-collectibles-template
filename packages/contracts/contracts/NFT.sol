@@ -19,7 +19,7 @@ contract NFT is Context, ERC721Enumerable, ERC721Burnable, ERC721Pausable, Ownab
     Counters.Counter private _tokenIdTracker;
 
     string private _baseTokenURI;
-    uint256 public constant MAX_ELEMENTS = 8888;
+    uint256 public constant MAX_ELEMENTS = 2222;
     uint256 public constant MAX_PURCHASE = 20;
     uint256 public constant price = 80000000000000000; //0.08 ETH
 

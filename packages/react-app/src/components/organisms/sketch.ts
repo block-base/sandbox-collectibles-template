@@ -20,13 +20,6 @@ export default function sketch(p5: any) {
     });
   };
 
-  p5.keyPressed = ()=>{
-    console.log("pressed")
-    console.log()
-    p5.saveCanvas(index.toString(), "png")
-    color = [p5.random(255), p5.random(255), p5.random(255)];
-  }
-
   p5.setup = () => {
     if (p5.windowWidth > 720) {
       p5.createCanvas(720, 720);
@@ -43,7 +36,7 @@ export default function sketch(p5: any) {
     p5.textStyle(p5.NORMAL);
   };
   p5.draw = () => {
-    p5.background(235);
+    p5.background(245);
     if (flowers.length) {
       if (p5.mouseX > 0 && p5.mouseX < p5.width && p5.mouseY > 0 && p5.mouseY < p5.height)
         flowers[0].update(
