@@ -1,13 +1,15 @@
 import React from "react";
 import { ethers } from "ethers";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
 import { Header } from "../../../components/organisms/Header";
 import { KanjiFlower } from "../../../components/organisms/KanjiFlower";
 import { Heading } from "../../../components/atoms/Heading";
+import { Button } from "../../../components/atoms/Button";
 import { Text } from "../../../components/atoms/Text";
 import { getNFTContract } from "../../../lib/web3";
+import data from "../../../components/data.json";
 
 function getLibrary(provider: any) {
   const library = new Web3Provider(provider);
@@ -17,7 +19,6 @@ function getLibrary(provider: any) {
 
 const App = () => {
   const [holderAddress, setHolderAddress] = React.useState("");
-  const [test, setTest] = React.useState(0);
   const { id } = useParams<{
     id: string;
   }>();
@@ -31,23 +32,38 @@ const App = () => {
       .catch(setHolderAddress("not minted"));
   }, []);
 
-  const handleContractNameChange = (e: any) => {
-    setTest(e.target.value);
-  };
   return (
     <>
       <Header></Header>
       <div className="py-4">
         <Heading align="center" as="h1" size="3xl">
-          Kanji Flowers {id}
+          Kanji Flowers : {data["kanji"][Number(id)]}
         </Heading>
       </div>
       <div className="pb-4">
         <Text align="center">Kanji Flowers is a 2889 unique NFT art created with Generative Art.</Text>
       </div>
-      <div className="grid lg:grid-cols-2 lg:p-10">{<KanjiFlower index={id} />}</div>
-      <input onChange={handleContractNameChange}></input>
-      <div>holder: {holderAddress}</div>
+      <div className="flex justify-between px-10 py-5">
+        <Link to={`${Number(id) - 1}`}>
+          <p className="hover:opacity-75 text-red-400 underline">←prev</p>
+        </Link>
+        <Link to={`${Number(id) + 1}`}>
+          <p className="hover:opacity-75 text-red-400 underline">next→</p>
+        </Link>
+      </div>
+      <div className="grid lg:grid-cols-2 lg:p-5">
+        <KanjiFlower index={id} />
+        <div className="m-auto">
+          <div className="mx-auto w-1/2">
+            <Button color="pink" rounded={true}>
+              view on OpenSea
+            </Button>
+          </div>
+          <Text align="center" size="xs">
+            holder: {holderAddress}
+          </Text>
+        </div>
+      </div>
     </>
   );
 };

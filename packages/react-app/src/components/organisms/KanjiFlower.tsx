@@ -20,7 +20,7 @@ export const KanjiFlower: React.FC<KanjiFlowerProps> = ({ index }) => {
           setRottation(Number(event.target.value));
         }}
       ></input>
-      <ReactP5Wrapper sketch={sketch} x={Number(index)} />
+      <ReactP5Wrapper sketch={sketch} tokenId={Number(index)} />
     </>
   );
 };

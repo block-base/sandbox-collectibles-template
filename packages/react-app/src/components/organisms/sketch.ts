@@ -8,22 +8,26 @@ export default function sketch(p5: any) {
   let flowers: any[] = []; // Array of all flowers
   let myFont: any;
   let index = 0;
+  let color = [p5.random(255), p5.random(255), p5.random(255)];
 
   p5.updateWithProps = (props: any) => {
-    console.log(props);
-    index = props.x;
+    index = props.tokenId;
   };
 
   p5.preload = () => {
-    console.log("preload");
     p5.loadFont(Sawarabi, (font: any) => {
       myFont = font;
     });
-    console.log(myFont, "font");
   };
 
+  p5.keyPressed = ()=>{
+    console.log("pressed")
+    console.log()
+    p5.saveCanvas(index.toString(), "png")
+    color = [p5.random(255), p5.random(255), p5.random(255)];
+  }
+
   p5.setup = () => {
-    console.log("setup");
     if (p5.windowWidth > 720) {
       p5.createCanvas(720, 720);
     } else {
@@ -33,7 +37,9 @@ export default function sketch(p5: any) {
     p5.frameRate(frameRate);
     p5.angleMode(p5.DEGREES);
     console.log(myFont);
-    p5.textFont(myFont);
+    if (index != 23) {
+      p5.textFont(myFont);
+    }
     p5.textStyle(p5.NORMAL);
   };
   p5.draw = () => {
@@ -75,7 +81,7 @@ export default function sketch(p5: any) {
       this.height = 10; // Height in standard size
       this.radiusScale = scale * p5.map(p5.abs(sentiment - 0.5), 0, 0.5, 9, 18); // Size of flower
 
-      this.startColor = p5.random(data.color[9]);
+      this.startColor = p5.random(color);
     }
 
     bloom(mainFlower: any, p5: p5Types) {
@@ -89,7 +95,7 @@ export default function sketch(p5: any) {
       for (let i = p5.floor(this.angle * this.progress) - 1; i >= 0; i--) {
         p5.push();
         p5.fill(0, 0, 0, 225 - 7 * i);
-        if (i == 0 && mainFlower) p5.fill(76, 10, 200, 225);
+        if (i == 0 && mainFlower) p5.fill(color[0], color[1], color[2], 225);
         p5.rotate((i * 360) / this.angle);
         p5.translate(this.radiusScale * this.offsetX, this.radiusScale * this.offsetY);
 

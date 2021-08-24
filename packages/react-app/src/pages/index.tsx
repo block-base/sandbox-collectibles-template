@@ -52,10 +52,10 @@ const App = () => {
             <button onClick={mint} className="w-40 h-8 bg-red-300 hover:opacity-75 text-white rounded-lg">
               mint
             </button>
+            <div>your wallet:{account}</div>
           </div>
         )}
       </div>
-      <div>{account}</div>
     </>
   );
 };

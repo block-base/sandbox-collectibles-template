@@ -18,7 +18,7 @@ export const Button: React.FC<ButtonProps> = ({ color, children, rounded, disabl
       : color === "red"
       ? "bg-red-500"
       : color === "pink"
-      ? "bg-pink-400"
+      ? "bg-red-400"
       : "bg-gray-400";
 
   const roundedClassName = rounded ? "rounded-xl" : "";
