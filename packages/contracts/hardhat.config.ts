@@ -20,10 +20,10 @@ module.exports = {
         url: "https://polygon-mainnet.infura.io/v3/7495501b681645b0b80f955d4139add9",
       },
     },
-    // mainnet: {
-    //   url: network.mainnet.rpc,
-    //   accounts: [privateKey],
-    // },
+    mainnet: {
+      url: "https://mainnet.infura.io/v3/95f65ab099894076814e8526f52c9149",
+      accounts: [privateKey],
+    },
     rinkeby: {
       url: "https://rinkeby.infura.io/v3/95f65ab099894076814e8526f52c9149",
       accounts: [privateKey],

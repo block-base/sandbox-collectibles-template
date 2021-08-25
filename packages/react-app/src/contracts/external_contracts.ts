@@ -577,9 +577,9 @@ export default {
       nft: { address: "0x486a153A8d904fEf2AEF7f2d2BE8820ee600376f", abi: nftAbi },
     },
   },
-  137: {
+  1: {
     contracts: {
-      nft: { address: "0xef359560f038286379f41C2E59A30ad41b3CD4Cc", abi: nftAbi },
+      nft: { address: "0xAEc8A198588f2C79026d02b28edaE5B4B0196Bf0", abi: nftAbi },
     },
   },
 };
