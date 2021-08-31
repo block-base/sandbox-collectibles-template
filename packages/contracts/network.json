@@ -1,12 +1,12 @@
 {
   "mainnet": {
     "chainId": "1",
-    "rpc": "https://mainnet.infura.io/v3/95f65ab099894076814e8526f52c9149",
+    "rpc": "https://mainnet.infura.io/v3/7495501b681645b0b80f955d4139add9",
     "explore": "https://etherscan.io/"
   },
   "rinkeby": {
     "chainId": "4",
-    "rpc": "https://rinkeby.infura.io/v3/95f65ab099894076814e8526f52c9149",
+    "rpc": "https://rinkeby.infura.io/v3/7495501b681645b0b80f955d4139add9",
     "explore": "https://rinkeby.etherscan.io/"
   },
   "matic": {
