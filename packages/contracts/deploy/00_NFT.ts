@@ -4,7 +4,7 @@ const func = async (hre: any) => {
   const { deployer } = await getNamedAccounts();
   await deploy("NFT", {
     from: deployer,
-    args: ["Kanji Flowers", "KF", "https://gateway.pinata.cloud/ipfs/QmaSgW5JuFAhqGnNrvqPpF5attaDpmT39xdJJFQ1gxudUH/"],
+    args: ["NFT Title", "SYMBOL", "url"],
     log: true,
   });
 };
