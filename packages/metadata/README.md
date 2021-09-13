@@ -9,8 +9,12 @@
 - create image folder (images for each tokenId) and upload to IPFS
 - create metadata folder and upload to IPFS
   - json
-    - "name":
-    - "description":
-    - "image": url of image folder on IPFS
-    - "animation_url": url of p5js folder on IPFS with seed in query string
+  ```
+  {
+    name: "name",
+    description: "description of your token",
+    image: "url of image folder on IPFS",
+    animation_url: "url of p5js folder on IPFS with seed in query string",
+   }
+  ```
 - set the IPFS link to contracts/deploy/00_NFT.ts as a 3rd arg to pass the constructor
