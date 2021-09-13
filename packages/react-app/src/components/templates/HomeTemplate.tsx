@@ -24,7 +24,7 @@ export const HomeTemplate: React.FC = () => {
 
   const mint = async () => {
     const value = ethers.utils.parseEther("0.08").toString();
-    await nftContractWithSigner.buy(1);
+    await nftContractWithSigner.buy(1, { value: value });
   };
 
   const random = Math.floor(Math.random() * 2222).toString();
