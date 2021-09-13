@@ -43,7 +43,9 @@ export const HomeTemplate: React.FC = () => {
     //     blockExplorerUrls: ["https://polygonscan.com/"],
     //   },
     // ];
-    // window.ethereum.request({ method: "wallet_addEthereumChain", params: data });
+    // if(window.ethereum){
+    //   window.ethereum.request({ method: "wallet_addEthereumChain", params: data });
+    // }
     const nftContract = getNFTContract();
     nftContract.totalSupply().then((supply: number) => {
       setTotalNumber(supply.toString());
